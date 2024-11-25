@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Entities
+namespace ContactsManager.Core.Domain.Entities
 {
     /// <summary>
     /// Person domain model class

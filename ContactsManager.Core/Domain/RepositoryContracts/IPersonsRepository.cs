@@ -1,7 +1,7 @@
-﻿using Entities;
+﻿using ContactsManager.Core.Domain.Entities;
 using System.Linq.Expressions;
 
-namespace RepositoryContracts
+namespace ContactsManager.Core.Domain.RepositoryContracts
 {
     /// <summary>
     /// Data management logic for Person entity
