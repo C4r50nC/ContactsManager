@@ -1,16 +1,16 @@
-﻿using CsvHelper;
+﻿using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Domain.RepositoryContracts;
+using ContactsManager.Core.DTO;
+using ContactsManager.Core.ServiceContracts;
+using CsvHelper;
 using CsvHelper.Configuration;
-using Entities;
 using Microsoft.Extensions.Logging;
 using OfficeOpenXml;
-using RepositoryContracts;
 using Serilog;
 using SerilogTimings;
-using ServiceContracts;
-using ServiceContracts.DTO;
 using System.Globalization;
 
-namespace Services
+namespace ContactsManager.Core.Services
 {
     public class PersonsGetterService : IPersonsGetterService
     {

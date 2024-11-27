@@ -1,8 +1,8 @@
-﻿using OfficeOpenXml;
-using ServiceContracts;
-using ServiceContracts.DTO;
+﻿using ContactsManager.Core.DTO;
+using ContactsManager.Core.ServiceContracts;
+using OfficeOpenXml;
 
-namespace Services
+namespace ContactsManager.Core.Services
 {
     public class PersonsGetterServiceWithFewerExcelFields : IPersonsGetterService
     {

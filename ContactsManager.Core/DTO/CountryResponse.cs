@@ -1,6 +1,6 @@
-﻿using Entities;
+﻿using ContactsManager.Core.Domain.Entities;
 
-namespace ServiceContracts.DTO
+namespace ContactsManager.Core.DTO
 {
     /// <summary>
     /// DTO class that is used as the return type for CountriesService methods
@@ -24,7 +24,7 @@ namespace ServiceContracts.DTO
 
             CountryResponse countryResponse = (CountryResponse)obj;
             // CountryId and CountryName uses value from "this" keyword by default
-            return (CountryId == countryResponse.CountryId) && (CountryName == countryResponse.CountryName);
+            return CountryId == countryResponse.CountryId && CountryName == countryResponse.CountryName;
         }
 
         public override int GetHashCode()

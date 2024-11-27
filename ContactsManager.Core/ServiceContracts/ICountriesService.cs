@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using ServiceContracts.DTO;
+﻿using ContactsManager.Core.DTO;
 
-namespace ServiceContracts
+namespace ContactsManager.Core.ServiceContracts
 {
     /// <summary>
     /// Business logic representation for Country entity manipulation

@@ -1,4 +1,4 @@
-﻿namespace ServiceContracts
+﻿namespace ContactsManager.Core.ServiceContracts
 {
     /// <summary>
     /// Business logic representation for Person entity manipulation

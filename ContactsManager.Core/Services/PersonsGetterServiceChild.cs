@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ContactsManager.Core.Domain.RepositoryContracts;
+using ContactsManager.Core.DTO;
+using Microsoft.Extensions.Logging;
 using OfficeOpenXml;
-using RepositoryContracts;
 using Serilog;
-using ServiceContracts.DTO;
 
-namespace Services
+namespace ContactsManager.Core.Services
 {
     public class PersonsGetterServiceChild : PersonsGetterService
     {

@@ -1,7 +1,7 @@
-﻿using Entities;
-using ServiceContracts.Enums;
+﻿using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Enums;
 
-namespace ServiceContracts.DTO
+namespace ContactsManager.Core.DTO
 {
     /// <summary>
     /// DTO class that is used as the return type for PersonsService methods
@@ -92,7 +92,7 @@ namespace ServiceContracts.DTO
                 PersonName = person.PersonName,
                 Email = person.Email,
                 DateOfBirth = person.DateOfBirth,
-                Age = (person.DateOfBirth != null) ? Math.Round((DateTime.Now - person.DateOfBirth).Value.TotalDays / 365.25) : null,
+                Age = person.DateOfBirth != null ? Math.Round((DateTime.Now - person.DateOfBirth).Value.TotalDays / 365.25) : null,
                 Gender = person.Gender,
                 CountryId = person.CountryId,
                 Address = person.Address,

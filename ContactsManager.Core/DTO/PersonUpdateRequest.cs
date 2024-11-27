@@ -1,8 +1,8 @@
-﻿using Entities;
-using ServiceContracts.Enums;
+﻿using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace ServiceContracts.DTO
+namespace ContactsManager.Core.DTO
 {
     /// <summary>
     /// DTO class for updating an existing person

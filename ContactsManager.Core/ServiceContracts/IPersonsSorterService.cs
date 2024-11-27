@@ -1,7 +1,7 @@
-﻿using ServiceContracts.DTO;
-using ServiceContracts.Enums;
+﻿using ContactsManager.Core.DTO;
+using ContactsManager.Core.Enums;
 
-namespace ServiceContracts
+namespace ContactsManager.Core.ServiceContracts
 {
     /// <summary>
     /// Business logic representation for Person entity manipulation

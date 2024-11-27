@@ -1,12 +1,12 @@
-﻿using Entities;
+﻿using ContactsManager.Core.Domain.Entities;
+using ContactsManager.Core.Domain.RepositoryContracts;
+using ContactsManager.Core.DTO;
+using ContactsManager.Core.Helpers;
+using ContactsManager.Core.ServiceContracts;
 using Microsoft.Extensions.Logging;
-using RepositoryContracts;
 using Serilog;
-using ServiceContracts;
-using ServiceContracts.DTO;
-using Services.Helpers;
 
-namespace Services
+namespace ContactsManager.Core.Services
 {
     public class PersonsAdderService : IPersonsAdderService
     {
