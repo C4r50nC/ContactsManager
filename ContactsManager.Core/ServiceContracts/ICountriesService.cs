@@ -1,4 +1,5 @@
 ﻿using ContactsManager.Core.DTO;
+using Microsoft.AspNetCore.Http;
 
 namespace ContactsManager.Core.ServiceContracts
 {

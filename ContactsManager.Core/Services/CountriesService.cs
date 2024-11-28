@@ -2,6 +2,7 @@
 using ContactsManager.Core.Domain.RepositoryContracts;
 using ContactsManager.Core.DTO;
 using ContactsManager.Core.ServiceContracts;
+using Microsoft.AspNetCore.Http;
 using OfficeOpenXml;
 
 namespace ContactsManager.Core.Services
