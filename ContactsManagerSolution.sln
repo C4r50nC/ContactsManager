@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7FFB4EED
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsManager.Core", "ContactsManager.Core\ContactsManager.Core.csproj", "{A10EFF0D-002A-4731-AF69-EA55DD1C9136}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsManager.Infrastructure", "ContactsManager.Infrastructure\ContactsManager.Infrastructure.csproj", "{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{A10EFF0D-002A-4731-AF69-EA55DD1C9136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A10EFF0D-002A-4731-AF69-EA55DD1C9136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A10EFF0D-002A-4731-AF69-EA55DD1C9136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1B756351-55AB-4D14-8DF2-92524AE0EC85} = {48FD7DBF-1ADC-41D1-A6DD-8C02DAF17AD8}
 		{A10EFF0D-002A-4731-AF69-EA55DD1C9136} = {48FD7DBF-1ADC-41D1-A6DD-8C02DAF17AD8}
+		{08DB57C4-9D17-4954-81CC-8B0ABA2E1F93} = {48FD7DBF-1ADC-41D1-A6DD-8C02DAF17AD8}
 	EndGlobalSection
 EndGlobal
