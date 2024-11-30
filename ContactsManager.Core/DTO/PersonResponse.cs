@@ -1,7 +1,7 @@
 ﻿using ContactsManager.Core.Domain.Entities;
 using ContactsManager.Core.Enums;
 
-namespace ContactsManager.Core.DTO
+namespace ContactsManager.Core.Dto
 {
     /// <summary>
     /// DTO class that is used as the return type for PersonsService methods

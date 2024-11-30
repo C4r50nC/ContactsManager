@@ -2,7 +2,7 @@
 using ContactsManager.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace ContactsManager.Core.DTO
+namespace ContactsManager.Core.Dto
 {
     /// <summary>
     /// DTO class for updating an existing person
