@@ -1,6 +1,6 @@
 ﻿using ContactsManager.Core.Domain.Entities;
 using ContactsManager.Core.Domain.RepositoryContracts;
-using ContactsManager.Core.DTO;
+using ContactsManager.Core.Dto;
 using ContactsManager.Core.Helpers;
 using ContactsManager.Core.ServiceContracts;
 using Microsoft.Extensions.Logging;

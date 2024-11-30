@@ -1,5 +1,5 @@
 ﻿using AutoFixture;
-using ContactsManager.Core.DTO;
+using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
 using ContactsManager.Core.ServiceContracts;
 using ContactsManager.UI.Controllers;

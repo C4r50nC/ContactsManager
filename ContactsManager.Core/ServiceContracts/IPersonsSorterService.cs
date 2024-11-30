@@ -1,4 +1,4 @@
-﻿using ContactsManager.Core.DTO;
+﻿using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
 
 namespace ContactsManager.Core.ServiceContracts

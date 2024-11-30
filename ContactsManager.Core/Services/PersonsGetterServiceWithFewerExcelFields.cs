@@ -1,4 +1,4 @@
-﻿using ContactsManager.Core.DTO;
+﻿using ContactsManager.Core.Dto;
 using ContactsManager.Core.ServiceContracts;
 using OfficeOpenXml;
 

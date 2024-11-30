@@ -1,5 +1,5 @@
 ﻿using ContactsManager.Core.Domain.RepositoryContracts;
-using ContactsManager.Core.DTO;
+using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
 using ContactsManager.Core.ServiceContracts;
 using Microsoft.Extensions.Logging;

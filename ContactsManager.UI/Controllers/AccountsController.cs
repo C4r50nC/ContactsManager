@@ -1,4 +1,4 @@
-﻿using ContactsManager.Core.DTO;
+﻿using ContactsManager.Core.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.UI.Controllers
