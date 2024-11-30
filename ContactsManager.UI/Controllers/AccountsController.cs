@@ -1,7 +1,7 @@
 ﻿using ContactsManager.Core.Dto;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContactsManager.UI.Controllers
+namespace ContactsManager.Ui.Controllers
 {
     [Route("[controller]/[action]")]
     public class AccountsController : Controller

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace ContactsManager.UI.Filters.ResourceFilters
+namespace ContactsManager.Ui.Filters.ResourceFilters
 {
     public class FeatureDisabledResourceFilter : IAsyncResourceFilter
     {

@@ -1,10 +1,10 @@
 ﻿using ContactsManager.Core.Dto;
 using ContactsManager.Core.ServiceContracts;
-using ContactsManager.UI.Controllers;
+using ContactsManager.Ui.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace ContactsManager.UI.Filters.ActionFilters
+namespace ContactsManager.Ui.Filters.ActionFilters
 {
     public class PersonCreateAndEditPostActionFilter : IAsyncActionFilter
     {

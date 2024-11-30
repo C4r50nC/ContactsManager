@@ -2,16 +2,16 @@
 using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
 using ContactsManager.Core.ServiceContracts;
-using ContactsManager.UI.Filters.ActionFilters;
-using ContactsManager.UI.Filters.AuthorizationFilters;
-using ContactsManager.UI.Filters.ExceptionFilters;
-using ContactsManager.UI.Filters.ResourceFilters;
-using ContactsManager.UI.Filters.ResultFilters;
+using ContactsManager.Ui.Filters.ActionFilters;
+using ContactsManager.Ui.Filters.AuthorizationFilters;
+using ContactsManager.Ui.Filters.ExceptionFilters;
+using ContactsManager.Ui.Filters.ResourceFilters;
+using ContactsManager.Ui.Filters.ResultFilters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Rotativa.AspNetCore;
 
-namespace ContactsManager.UI.Controllers
+namespace ContactsManager.Ui.Controllers
 {
     [Route("[controller]")]
     // [TypeFilter(typeof(ResponseHeaderActionFilter), Arguments = ["X-Key-From-Controller", "Value-From-Controller", 3], Order = 3)]

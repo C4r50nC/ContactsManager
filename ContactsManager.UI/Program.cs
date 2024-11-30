@@ -1,5 +1,5 @@
-using ContactsManager.UI.Middlewares;
-using ContactsManager.UI.StartupExtensions;
+using ContactsManager.Ui.Middlewares;
+using ContactsManager.Ui.StartupExtensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -3,10 +3,10 @@ using ContactsManager.Core.ServiceContracts;
 using ContactsManager.Core.Services;
 using ContactsManager.Infrastructure.DbContext;
 using ContactsManager.Infrastructure.Repositories;
-using ContactsManager.UI.Filters.ActionFilters;
+using ContactsManager.Ui.Filters.ActionFilters;
 using Microsoft.EntityFrameworkCore;
 
-namespace ContactsManager.UI.StartupExtensions
+namespace ContactsManager.Ui.StartupExtensions
 {
     public static class ServiceConfigurationExtension
     {

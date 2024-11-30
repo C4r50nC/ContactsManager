@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContactsManager.UI.Controllers
+namespace ContactsManager.Ui.Controllers
 {
     public class HomeController : Controller
     {

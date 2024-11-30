@@ -2,7 +2,7 @@
 using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
 using ContactsManager.Core.ServiceContracts;
-using ContactsManager.UI.Controllers;
+using ContactsManager.Ui.Controllers;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

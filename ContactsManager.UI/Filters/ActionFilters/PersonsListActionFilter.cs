@@ -1,9 +1,9 @@
 ﻿using ContactsManager.Core.Dto;
 using ContactsManager.Core.Enums;
-using ContactsManager.UI.Controllers;
+using ContactsManager.Ui.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace ContactsManager.UI.Filters.ActionFilters
+namespace ContactsManager.Ui.Filters.ActionFilters
 {
     public class PersonsListActionFilter : IActionFilter
     {
