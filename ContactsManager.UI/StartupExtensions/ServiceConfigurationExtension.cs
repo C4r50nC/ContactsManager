@@ -1,9 +1,12 @@
-﻿using ContactsManager.Core.Domain.RepositoryContracts;
+﻿using ContactsManager.Core.Domain.IdentityEntities;
+using ContactsManager.Core.Domain.RepositoryContracts;
 using ContactsManager.Core.ServiceContracts;
 using ContactsManager.Core.Services;
 using ContactsManager.Infrastructure.DbContext;
 using ContactsManager.Infrastructure.Repositories;
 using ContactsManager.Ui.Filters.ActionFilters;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactsManager.Ui.StartupExtensions
@@ -43,6 +46,13 @@ namespace ContactsManager.Ui.StartupExtensions
             });
 
             services.AddTransient<PersonsListActionFilter>();
+
+            services
+                .AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                .AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, Guid>>()
+                .AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>();
 
             services.AddHttpLogging(httpLoggingOptions =>
             {
