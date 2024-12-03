@@ -1,4 +1,6 @@
-﻿using ContactsManager.Core.Dto;
+﻿using ContactsManager.Core.Domain.IdentityEntities;
+using ContactsManager.Core.Dto;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.Ui.Controllers
@@ -6,6 +8,13 @@ namespace ContactsManager.Ui.Controllers
     [Route("[controller]/[action]")]
     public class AccountsController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public AccountsController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -13,9 +22,34 @@ namespace ContactsManager.Ui.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterDto registerDto)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
-            return RedirectToAction(nameof(PersonsController.Index), nameof(PersonsController));
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = ModelState.Values.SelectMany(value => value.Errors).Select(error => error.ErrorMessage);
+                return View(registerDto);
+            }
+
+            ApplicationUser user = new()
+            {
+                Email = registerDto.Email,
+                PhoneNumber = registerDto.Phone,
+                UserName = registerDto.Email,
+                PersonName = registerDto.PersonName,
+            };
+
+            IdentityResult identityResult = await _userManager.CreateAsync(user, registerDto.Password);
+            if (!identityResult.Succeeded)
+            {
+                foreach (IdentityError error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("Register", error.Description);
+                }
+
+                return View(registerDto);
+            }
+
+            return RedirectToAction(nameof(PersonsController.Index), "Persons");
         }
     }
 }
