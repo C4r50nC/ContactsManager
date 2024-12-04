@@ -11,7 +11,7 @@ namespace ContactsManager.Core.Dto
         [DataType(DataType.EmailAddress)]
         public required string Email { get; set; }
         [Required]
-        [RegularExpression("^[0-9]*$")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Phone number must only contain numbers")]
         [DataType(DataType.PhoneNumber)]
         public required string Phone { get; set; }
         [Required]
@@ -19,6 +19,7 @@ namespace ContactsManager.Core.Dto
         public required string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [Compare(nameof(Password), ErrorMessage = "Confirm password must match with password")]
         public required string ConfirmPassword { get; set; }
     }
 }
