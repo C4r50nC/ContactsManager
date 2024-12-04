@@ -36,6 +36,7 @@ if (!builder.Environment.IsEnvironment("Test"))
 }
 
 app.UseStaticFiles();
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

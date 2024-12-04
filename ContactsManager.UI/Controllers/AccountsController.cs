@@ -9,10 +9,12 @@ namespace ContactsManager.Ui.Controllers
     public class AccountsController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountsController(UserManager<ApplicationUser> userManager)
+        public AccountsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -48,6 +50,8 @@ namespace ContactsManager.Ui.Controllers
 
                 return View(registerDto);
             }
+
+            await _signInManager.SignInAsync(user, false);
 
             return RedirectToAction(nameof(PersonsController.Index), "Persons");
         }

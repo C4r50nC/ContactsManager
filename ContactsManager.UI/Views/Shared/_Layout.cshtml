@@ -22,6 +22,7 @@
                     <div class="flex-1 pr" id="search-box-div">
                         <div class="navbar account-links">
                             <ul>
+                                <li>@User.Identity?.Name</li>
                                 <li><a asp-controller="Accounts" asp-action="Register">Register</a></li>
                                 <li><a asp-controller="Accounts" asp-action="Login">Login</a></li>
                             </ul>
