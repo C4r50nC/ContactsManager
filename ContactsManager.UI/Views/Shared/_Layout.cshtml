@@ -7,6 +7,7 @@
     <link href="~/StyleSheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="container">
         <div class="page-content">
@@ -22,9 +23,17 @@
                     <div class="flex-1 pr" id="search-box-div">
                         <div class="navbar account-links">
                             <ul>
-                                <li>@User.Identity?.Name</li>
-                                <li><a asp-controller="Accounts" asp-action="Register">Register</a></li>
-                                <li><a asp-controller="Accounts" asp-action="Login">Login</a></li>
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                    <li><i class="fa-solid fa-user"></i></li>
+                                    <li>@User.Identity?.Name</li>
+                                    <li><a asp-controller="Accounts" asp-action="Logout">Logout</a></li>
+                                }
+                                else
+                                {
+                                    <li><a asp-controller="Accounts" asp-action="Register">Register</a></li>
+                                    <li><a asp-controller="Accounts" asp-action="Login">Login</a></li>
+                                }
                             </ul>
                         </div>
                     </div>
