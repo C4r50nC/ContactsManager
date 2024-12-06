@@ -56,7 +56,6 @@ namespace ContactsManager.Ui.StartupExtensions
                     options.Password.RequireLowercase = false;
                     options.Password.RequireDigit = false;
                     options.Password.RequiredUniqueChars = 2;
-                    options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
