@@ -55,5 +55,31 @@ namespace ContactsManager.Ui.Controllers
 
             return RedirectToAction(nameof(PersonsController.Index), "Persons");
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = ModelState.Values.SelectMany(value => value.Errors).Select(error => error.ErrorMessage);
+                return View(loginDto);
+            }
+
+            Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(loginDto.Email, loginDto.Password, false, false);
+
+            if (!signInResult.Succeeded)
+            {
+                ModelState.AddModelError("Login", "Invalid email or password");
+                return View(signInResult);
+            }
+
+            return RedirectToAction(nameof(PersonsController.Index), "Persons");
+        }
     }
 }
