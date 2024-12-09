@@ -65,7 +65,7 @@ namespace ContactsManager.Ui.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginDto loginDto)
+        public async Task<IActionResult> Login(LoginDto loginDto, string? returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -81,7 +81,12 @@ namespace ContactsManager.Ui.Controllers
                 return View(signInResult);
             }
 
-            return RedirectToAction(nameof(PersonsController.Index), "Persons");
+            if (string.IsNullOrEmpty(returnUrl) || !Url.IsLocalUrl(returnUrl))
+            {
+                return RedirectToAction(nameof(PersonsController.Index), "Persons");
+            }
+
+            return LocalRedirect(returnUrl);
         }
 
         public async Task<IActionResult> Logout()
