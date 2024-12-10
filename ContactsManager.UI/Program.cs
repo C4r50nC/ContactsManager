@@ -40,6 +40,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapControllerRoute("default", "{controller}/{action}/{id?}");
 
 app.Run();
 
