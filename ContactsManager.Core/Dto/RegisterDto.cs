@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContactsManager.Core.Dto
 {
@@ -9,6 +10,7 @@ namespace ContactsManager.Core.Dto
         [Required]
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
+        [Remote("IsRegisteredEmail", "AccountsController", ErrorMessage = "Email is already used")]
         public required string Email { get; set; }
         [Required]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Phone number must only contain numbers")]
