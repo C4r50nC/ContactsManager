@@ -115,6 +115,17 @@ namespace ContactsManager.Ui.Controllers
                 return RedirectToAction(nameof(PersonsController.Index), "Persons");
             }
 
+            ApplicationUser? user = await _userManager.FindByEmailAsync(loginDto.Email);
+            if (user == null)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            bool isUserAdmin = await _userManager.IsInRoleAsync(user, UserTypeOptions.Admin.ToString());
+            if (isUserAdmin)
+            {
+                return RedirectToAction(nameof(Areas.Admin.Controllers.HomeController.Index), "Home", new { area = "Admin" });
+            }
+
             return LocalRedirect(returnUrl);
         }
 
