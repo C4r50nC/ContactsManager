@@ -11,7 +11,7 @@ namespace ContactsManager.Core.Dto
         [Required]
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
-        [Remote("IsRegisteredEmail", "AccountsController", ErrorMessage = "Email is already used")]
+        [Remote("IsRegisteredEmail", "Accounts", ErrorMessage = "Email is already used")]
         public required string Email { get; set; }
         [Required]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Phone number must only contain numbers")]
