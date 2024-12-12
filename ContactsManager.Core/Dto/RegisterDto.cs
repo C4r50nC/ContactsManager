@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContactsManager.Core.Enums;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace ContactsManager.Core.Dto
@@ -23,5 +24,6 @@ namespace ContactsManager.Core.Dto
         [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Confirm password must match with password")]
         public required string ConfirmPassword { get; set; }
+        public UserTypeOptions UserType { get; set; } = UserTypeOptions.User;
     }
 }

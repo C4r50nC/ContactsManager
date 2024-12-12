@@ -1,22 +1,24 @@
 ﻿using ContactsManager.Core.Domain.IdentityEntities;
 using ContactsManager.Core.Dto;
+using ContactsManager.Core.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.Ui.Controllers
 {
-    // [Route("[controller]/[action]")]
     [AllowAnonymous]
     public class AccountsController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
 
-        public AccountsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         [HttpGet]
@@ -51,6 +53,33 @@ namespace ContactsManager.Ui.Controllers
                 }
 
                 return View(registerDto);
+            }
+
+            if (registerDto.UserType == UserTypeOptions.Admin)
+            {
+                if (await _roleManager.FindByNameAsync(UserTypeOptions.Admin.ToString()) == null)
+                {
+                    ApplicationRole adminRole = new()
+                    {
+                        Name = UserTypeOptions.Admin.ToString(),
+                    };
+                    await _roleManager.CreateAsync(adminRole);
+                }
+
+                await _userManager.AddToRoleAsync(user, UserTypeOptions.Admin.ToString());
+            }
+            else
+            {
+                if (await _roleManager.FindByNameAsync(UserTypeOptions.User.ToString()) == null)
+                {
+                    ApplicationRole userRole = new()
+                    {
+                        Name = UserTypeOptions.User.ToString(),
+                    };
+                    await _roleManager.CreateAsync(userRole);
+                }
+
+                await _userManager.AddToRoleAsync(user, UserTypeOptions.User.ToString());
             }
 
             await _signInManager.SignInAsync(user, false);
