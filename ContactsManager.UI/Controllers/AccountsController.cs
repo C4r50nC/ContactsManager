@@ -57,29 +57,29 @@ namespace ContactsManager.Ui.Controllers
 
             if (registerDto.UserType == UserTypeOptions.Admin)
             {
-                if (await _roleManager.FindByNameAsync(UserTypeOptions.Admin.ToString()) == null)
+                if (await _roleManager.FindByNameAsync(nameof(UserTypeOptions.Admin)) == null)
                 {
                     ApplicationRole adminRole = new()
                     {
-                        Name = UserTypeOptions.Admin.ToString(),
+                        Name = nameof(UserTypeOptions.Admin),
                     };
                     await _roleManager.CreateAsync(adminRole);
                 }
 
-                await _userManager.AddToRoleAsync(user, UserTypeOptions.Admin.ToString());
+                await _userManager.AddToRoleAsync(user, nameof(UserTypeOptions.Admin));
             }
             else
             {
-                if (await _roleManager.FindByNameAsync(UserTypeOptions.User.ToString()) == null)
+                if (await _roleManager.FindByNameAsync(nameof(UserTypeOptions.User)) == null)
                 {
                     ApplicationRole userRole = new()
                     {
-                        Name = UserTypeOptions.User.ToString(),
+                        Name = nameof(UserTypeOptions.User),
                     };
                     await _roleManager.CreateAsync(userRole);
                 }
 
-                await _userManager.AddToRoleAsync(user, UserTypeOptions.User.ToString());
+                await _userManager.AddToRoleAsync(user, nameof(UserTypeOptions.User));
             }
 
             await _signInManager.SignInAsync(user, false);
@@ -120,7 +120,7 @@ namespace ContactsManager.Ui.Controllers
             {
                 return LocalRedirect(returnUrl);
             }
-            bool isUserAdmin = await _userManager.IsInRoleAsync(user, UserTypeOptions.Admin.ToString());
+            bool isUserAdmin = await _userManager.IsInRoleAsync(user, nameof(UserTypeOptions.Admin));
             if (isUserAdmin)
             {
                 return RedirectToAction(nameof(Areas.Admin.Controllers.HomeController.Index), "Home", new { area = "Admin" });
