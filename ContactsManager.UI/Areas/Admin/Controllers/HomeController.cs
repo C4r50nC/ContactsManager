@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContactsManager.Core.Enums;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.Ui.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(UserTypeOptions.Admin))]
     public class HomeController : Controller
     {
         // [Route("Admin/[controller]/[action]")]
