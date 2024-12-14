@@ -67,6 +67,14 @@ namespace ContactsManager.Ui.StartupExtensions
             {
                 // Enforce authorization policy for all action methods without [AllowAnonymous] tag
                 options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+                options.AddPolicy("NotAuthenticated", policy =>
+                {
+                    policy.RequireAssertion(context =>
+                    {
+                        return context.User.Identity == null || !context.User.Identity.IsAuthenticated;
+                    });
+                });
             });
 
             services.ConfigureApplicationCookie(options =>

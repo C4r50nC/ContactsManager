@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContactsManager.Ui.Controllers
 {
-    [AllowAnonymous]
+    // [AllowAnonymous] // Removed to resolve conficts with NotAuthenticated policy in Authorize attribute
     public class AccountsController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -22,12 +22,14 @@ namespace ContactsManager.Ui.Controllers
         }
 
         [HttpGet]
+        [Authorize("NotAuthenticated")]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize("NotAuthenticated")]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             if (!ModelState.IsValid)
@@ -88,12 +90,14 @@ namespace ContactsManager.Ui.Controllers
         }
 
         [HttpGet]
+        [Authorize("NotAuthenticated")]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize("NotAuthenticated")]
         public async Task<IActionResult> Login(LoginDto loginDto, string? returnUrl)
         {
             if (!ModelState.IsValid)
@@ -129,12 +133,14 @@ namespace ContactsManager.Ui.Controllers
             return LocalRedirect(returnUrl);
         }
 
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(PersonsController.Index), "Persons");
         }
 
+        [Authorize("NotAuthenticated")]
         public async Task<IActionResult> IsRegisteredEmail(string email)
         {
             ApplicationUser? user = await _userManager.FindByEmailAsync(email);
