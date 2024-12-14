@@ -8,6 +8,7 @@ using ContactsManager.Ui.Filters.ActionFilters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactsManager.Ui.StartupExtensions
@@ -28,6 +29,9 @@ namespace ContactsManager.Ui.StartupExtensions
                     ResponseHeaderValue = "Value-From-Global",
                     Order = 2,
                 });
+
+                // Prevents XSRF attack globally
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
 
             services.AddScoped<ICountriesRepository, CountriesRepository>();

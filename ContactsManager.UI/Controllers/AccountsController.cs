@@ -30,6 +30,7 @@ namespace ContactsManager.Ui.Controllers
 
         [HttpPost]
         [Authorize("NotAuthenticated")]
+        // [ValidateAntiForgeryToken] // Prevents XSRF attack, can be added for each POST route or globally in ServiceConfigurationExtension
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
             if (!ModelState.IsValid)
