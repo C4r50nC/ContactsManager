@@ -26,6 +26,9 @@ else
     app.UseExceptionHandlingMiddleware();
 }
 
+app.UseHsts();
+app.UseHttpsRedirection();
+
 app.UseSerilogRequestLogging();
 
 app.UseHttpLogging(); // Must be used together with builder.Services.AddHttpLogging() even when httpLoggingOptions is empty
